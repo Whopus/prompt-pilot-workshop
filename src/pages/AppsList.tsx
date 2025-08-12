@@ -54,11 +54,9 @@ const AppsList = () => {
                   <span>Datasets</span>
                   <span className="text-foreground font-medium">{app.datasets ?? 0}</span>
                 </div>
-                <div className="mt-3 rounded-md p-2.5">
-          <div className="flex items-center justify-between">
-            <div>今日统计</div>
-            <div className="text-foreground font-medium">会话 12 · Token 45k</div>
-          </div>
+                <div className="flex items-center justify-between py-0.5 mt-3">
+                  <span>今日统计</span>
+                  <span className="text-foreground font-medium">会话 12 · Token 45k</span>
                 </div>
                 <div className="pt-3">
                   <Button asChild variant="outline" className="w-full">
