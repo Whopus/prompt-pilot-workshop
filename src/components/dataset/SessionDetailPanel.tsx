@@ -308,8 +308,8 @@ function TimelineItem({
 function BlockText({ title, editable, defaultValue }: { title: string; editable: boolean; defaultValue?: string }) {
   const [value, setValue] = useState(defaultValue ?? "");
   return (
-    <div className="rounded-md border bg-background">
-      <div className="flex items-center justify-between border-b px-3 py-1.5">
+    <div className="rounded-md bg-background">
+      <div className="flex items-center justify-between px-3 py-1.5">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete text block" onClick={() => toast.success("删除文本块") }>
           <X className="h-4 w-4" />
@@ -322,14 +322,17 @@ function BlockText({ title, editable, defaultValue }: { title: string; editable:
           <p className="text-sm whitespace-pre-wrap">{value}</p>
         )}
       </div>
+      <div className="px-3">
+        <div className="h-px bg-border" />
+      </div>
     </div>
   );
 }
 
 function BlockImage({ title, editable, filename }: { title: string; editable: boolean; filename?: string }) {
   return (
-    <div className="rounded-md border bg-background">
-      <div className="flex items-center justify-between border-b px-3 py-1.5">
+    <div className="rounded-md bg-background">
+    <div className="flex items-center justify-between px-3 py-1.5">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete image block" onClick={() => toast.success("删除图片块") }>
           <X className="h-4 w-4" />
@@ -362,8 +365,8 @@ function BlockImage({ title, editable, filename }: { title: string; editable: bo
 function BlockCode({ title, editable, language, defaultValue }: { title: string; editable: boolean; language?: string; defaultValue?: string }) {
   const [value, setValue] = useState(defaultValue ?? "");
   return (
-    <div className="rounded-md border bg-background">
-      <div className="flex items-center justify-between border-b px-3 py-1.5">
+    <div className="rounded-md bg-background">
+    <div className="flex items-center justify-between px-3 py-1.5">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete code block" onClick={() => toast.success("删除代码块") }>
           <X className="h-4 w-4" />
