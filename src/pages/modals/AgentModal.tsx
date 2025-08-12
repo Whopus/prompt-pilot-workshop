@@ -401,7 +401,7 @@ const AgentModal = ({ children, agent }: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4">
             <div className="space-y-2">
               <Input placeholder="搜索可用工具" value={toolSearch} onChange={(e) => setToolSearch(e.target.value)} />
-              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
+              <div className="border rounded-md p-2 h-56 overflow-auto scrollbar-thin-dark">
                 {filteredAvailableTools.map((t) => (
                   <label key={t.id} className="block px-2 py-1 cursor-pointer">
                     <input
@@ -435,29 +435,35 @@ const AgentModal = ({ children, agent }: Props) => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">已选择工具</span>
               </div>
-              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
-                {selectedTools.map((t, idx) => (
-                  <label key={t.id} className="block px-2 py-1 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="mr-2"
-                      checked={pickedSelectedToolIds.includes(t.id)}
-                      onChange={(e) =>
-                        setPickedSelectedToolIds((prev) =>
-                          e.target.checked ? [...prev, t.id] : prev.filter((id) => id !== t.id)
-                        )
-                      }
-                    />
-                    <div className="inline-block align-top">
-                      <div className="font-medium text-sm flex items-center gap-2">
-                        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-muted text-xs">{idx + 1}</span>
-                        {t.name}
+              <div className="border rounded-md p-2 h-56 overflow-auto scrollbar-thin-dark">
+                {selectedTools.length === 0 ? (
+                  <div className="h-full flex items-center justify-center text-sm text-muted-foreground">
+                    暂时没有配置任何工具
+                  </div>
+                ) : (
+                  selectedTools.map((t, idx) => (
+                    <label key={t.id} className="block px-2 py-1 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="mr-2"
+                        checked={pickedSelectedToolIds.includes(t.id)}
+                        onChange={(e) =>
+                          setPickedSelectedToolIds((prev) =>
+                            e.target.checked ? [...prev, t.id] : prev.filter((id) => id !== t.id)
+                          )
+                        }
+                      />
+                      <div className="inline-block align-top">
+                        <div className="font-medium text-sm flex items-center gap-2">
+                          <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-muted text-xs">{idx + 1}</span>
+                          {t.name}
+                        </div>
+                        <div className="text-xs text-muted-foreground">API: {t.api}</div>
+                        <div className="text-xs text-muted-foreground">{t.description}</div>
                       </div>
-                      <div className="text-xs text-muted-foreground">API: {t.api}</div>
-                      <div className="text-xs text-muted-foreground">{t.description}</div>
-                    </div>
-                  </label>
-                ))}
+                    </label>
+                  ))
+                )}
               </div>
             </div>
           </div>
