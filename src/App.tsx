@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import AppsList from "./pages/AppsList";
 import AppDetail from "./pages/AppDetail";
 import NotFound from "./pages/NotFound";
+import DatasetDetail from "./pages/DatasetDetail";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/apps" element={<AppsList />} />
             <Route path="/apps/:id/:tab?" element={<AppDetail />} />
+            <Route path="/apps/:id/datasets/:datasetId" element={<DatasetDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

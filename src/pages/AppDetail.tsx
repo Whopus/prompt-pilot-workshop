@@ -202,6 +202,7 @@ const McpsSection = () => {
 };
 
 const HistorySection = () => {
+  const { id } = useParams<{ id: string }>();
   const items = [
     { id: "d1", name: "客服知识库", records: 1240, size: "12.4 MB", updatedAt: "2025-08-10 14:22" },
     { id: "d2", name: "FAQ 数据集", records: 320, size: "3.1 MB", updatedAt: "2025-08-11 09:10" },
@@ -222,6 +223,9 @@ const HistorySection = () => {
                 <div className="flex items-center justify-between"><span>最近更新</span><span className="text-foreground">{it.updatedAt}</span></div>
               </CardContent>
               <CardFooter className="flex items-center justify-end gap-2">
+                <Link to={`/apps/${id}/datasets/${it.id}`}>
+                  <Button size="sm">进入</Button>
+                </Link>
                 <Button variant="outline" size="sm"><Edit className="h-4 w-4 mr-1" />编辑</Button>
                 <ConfirmDelete>
                   <Button variant="outline" size="sm"><Trash2 className="h-4 w-4 mr-1" />删除</Button>
