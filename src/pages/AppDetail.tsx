@@ -140,7 +140,7 @@ const ToolsSection = () => {
             <CardContent className="text-sm space-y-2 text-muted-foreground">
               <div className="flex items-center justify-between"><span>方法</span><span className="text-foreground">{it.method}</span></div>
               <div className="flex items-center justify-between"><span>端点</span><span className="text-foreground">{it.endpoint}</span></div>
-              <div><span>描述</span><div className="text-foreground">{it.desc}</div></div>
+              <div className="flex items-start justify-between gap-3"><span>描述</span><div className="text-foreground text-right max-w-[70%]">{it.desc}</div></div>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
               <ToolModal tool={it}>
