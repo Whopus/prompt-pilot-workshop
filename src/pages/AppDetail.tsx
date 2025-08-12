@@ -117,7 +117,7 @@ const AgentsSection = () => {
       </div>
       <div className="fixed left-1/2 bottom-6 -translate-x-1/2 z-40">
         <AgentModal>
-          <Button size="lg" className="shadow-lg">新增xx</Button>
+          <Button size="lg" className="shadow-lg">新增agent</Button>
         </AgentModal>
       </div>
     </section>
