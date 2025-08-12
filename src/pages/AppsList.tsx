@@ -1,0 +1,67 @@
+import { Helmet } from "react-helmet-async";
+import AppHeader from "@/components/layout/AppHeader";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import StatusDot from "@/components/common/StatusDot";
+import { Link } from "react-router-dom";
+import NewAppModal from "@/pages/modals/NewAppModal";
+
+const sampleApps = [
+  { id: "1", name: "客服助手", agents: 4, tools: 6, status: "active" as const },
+  { id: "2", name: "分析机器人", agents: 2, tools: 3, status: "idle" as const },
+  { id: "3", name: "内容生成", agents: 3, tools: 5, status: "active" as const },
+  { id: "4", name: "监控预警", agents: 1, tools: 2, status: "error" as const },
+];
+
+const AppsList = () => {
+  return (
+    <>
+      <Helmet>
+        <title>AIgents — 我的应用</title>
+        <meta name="description" content="查看和管理你的 AI 应用列表" />
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
+      <AppHeader />
+      <main className="container pt-20 pb-16 animate-fade-in">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-lg font-semibold">我的应用</h1>
+          <NewAppModal>
+            <Button>新建</Button>
+          </NewAppModal>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sampleApps.map((app) => (
+            <Card key={app.id} className="hover:shadow-none">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-base font-semibold">{app.name}</CardTitle>
+                <StatusDot status={app.status} />
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">
+                <div className="flex items-center justify-between py-1">
+                  <span>Agents</span>
+                  <span>{app.agents}</span>
+                </div>
+                <div className="flex items-center justify-between py-1">
+                  <span>Tools</span>
+                  <span>{app.tools}</span>
+                </div>
+                <div className="pt-4">
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to={`/apps/${app.id}/agents`}>进入</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-8 border rounded-md p-4 text-sm text-muted-foreground">
+          今日统计：会话 12 · Token 45k · 错误 0
+        </div>
+      </main>
+    </>
+  );
+};
+
+export default AppsList;
