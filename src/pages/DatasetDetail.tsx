@@ -30,6 +30,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import {
   ChevronLeft,
@@ -90,7 +91,8 @@ const DatasetDetail = () => {
   const { id, datasetId } = useParams<{ id: string; datasetId: string }>();
 
   // UI State
-  const [open, setOpen] = useState<string | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selected, setSelected] = useState<SessionRow | null>(null);
   const [search, setSearch] = useState("");
   const [agent, setAgent] = useState<string | undefined>(undefined);
   const [dateRange, setDateRange] = useState<string | undefined>(undefined);
@@ -230,10 +232,9 @@ const DatasetDetail = () => {
                 {sessions.map((r) => (
                   <>
                     <TableRow
-                      key={r.id}
-                      className="h-12 cursor-pointer transition-colors hover:bg-muted/60 border-b border-border/40"
-                      onClick={() => setOpen(open === r.id ? null : r.id)}
-                    >
+                       key={r.id}
+                       className="h-12 transition-colors hover:bg-muted/60 border-b border-border/40"
+                     >
                       <TableCell className="font-mono text-sm" title={r.id}>
                         {r.id.slice(0, 12)}
                       </TableCell>
@@ -264,7 +265,7 @@ const DatasetDetail = () => {
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuItem onClick={() => toast.success("打开详情", { duration: 2000 })}>
+                              <DropdownMenuItem onClick={() => { setSelected(r); setDetailOpen(true); }}>
                                 <ExternalLink className="h-4 w-4 mr-2" /> View Details
                               </DropdownMenuItem>
                               <DropdownMenuItem onClick={() => { navigator.clipboard.writeText(r.id); toast.success("Session ID 已复制"); }}>
@@ -283,13 +284,6 @@ const DatasetDetail = () => {
                       </TableCell>
                     </TableRow>
 
-                    {open === r.id && (
-                      <TableRow className="bg-background">
-                        <TableCell colSpan={8} className="p-0">
-                          <SessionDetailPanel session={r} onClose={() => setOpen(null)} />
-                        </TableCell>
-                      </TableRow>
-                    )}
                   </>
                 ))}
               </TableBody>
@@ -304,6 +298,15 @@ const DatasetDetail = () => {
           <Button variant="outline" size="sm">Next →</Button>
         </section>
       </main>
+
+      <Dialog open={detailOpen} onOpenChange={(o) => { if (!o) { setDetailOpen(false); setSelected(null); } }}>
+        <DialogContent className="max-w-5xl p-0">
+          {selected && (
+            <SessionDetailPanel session={selected} onClose={() => { setDetailOpen(false); setSelected(null); }} />
+          )}
+        </DialogContent>
+      </Dialog>
+
     </>
   );
 };
