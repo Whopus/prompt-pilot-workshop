@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 const AppHeader = ({ leftSlot }: { leftSlot?: ReactNode }) => {
   return (
     <header className="fixed top-0 left-0 right-0 border-b bg-background/80 backdrop-blur supports-backdrop-blur:z-50 z-50">
-      <div className="container h-14 flex items-center justify-between">
+      <div className="container h-16 md:h-20 flex items-center justify-between">
         {leftSlot ? (
           leftSlot
         ) : (
