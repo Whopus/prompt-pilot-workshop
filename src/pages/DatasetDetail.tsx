@@ -135,29 +135,10 @@ const DatasetDetail = () => {
         {/* Page Title + Export */}
         <section className="flex items-center">
           <h2 className="text-[20px] font-semibold">Interaction dataset</h2>
-          <div className="ml-auto">
-            <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
-                <Download className="h-4 w-4 mr-1" /> 导出 <ChevronDown className="h-4 w-4 ml-1" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>导出选项</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={exportAction("导出当前页 CSV")}>导出当前页（CSV）</DropdownMenuItem>
-              <DropdownMenuItem onClick={exportAction("导出全部 CSV")}>导出全部（CSV）</DropdownMenuItem>
-              <DropdownMenuItem onClick={exportAction("导出当前页 JSON")}>导出当前页（JSON）</DropdownMenuItem>
-              <DropdownMenuItem onClick={exportAction("导出全部 JSON")}>导出全部（JSON）</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={exportAction("导出分析报告 PDF")}>导出分析报告（PDF）</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          </div>
         </section>
 
         {/* Filters */}
-        <section className="rounded-md bg-muted px-6 py-3">
+        <section className="py-3">
           <div className="flex flex-col gap-3 md:flex-row md:items-center">
             <Select onValueChange={setAgent}>
               <SelectTrigger className="w-[150px]"><SelectValue placeholder="All Agents" /></SelectTrigger>
@@ -197,6 +178,25 @@ const DatasetDetail = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
+            </div>
+            <div className="md:ml-auto">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <Download className="h-4 w-4 mr-1" /> 导出 <ChevronDown className="h-4 w-4 ml-1" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>导出选项</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={exportAction("导出当前页 CSV")}>导出当前页（CSV）</DropdownMenuItem>
+                  <DropdownMenuItem onClick={exportAction("导出全部 CSV")}>导出全部（CSV）</DropdownMenuItem>
+                  <DropdownMenuItem onClick={exportAction("导出当前页 JSON")}>导出当前页（JSON）</DropdownMenuItem>
+                  <DropdownMenuItem onClick={exportAction("导出全部 JSON")}>导出全部（JSON）</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={exportAction("导出分析报告 PDF")}>导出分析报告（PDF）</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </section>
