@@ -180,7 +180,7 @@ const McpsSection = () => {
             <CardContent className="text-sm space-y-2 text-muted-foreground">
               <div className="flex items-center justify-between"><span>MCP URL</span><span className="text-foreground">{it.url}</span></div>
               <div className="flex items-center justify-between"><span>审批模式</span><span className="text-foreground">{it.mode}</span></div>
-              <div><span>描述</span><div className="text-foreground">{it.desc}</div></div>
+              <div className="flex items-start justify-between gap-3"><span>描述</span><div className="text-foreground text-right max-w-[70%]">{it.desc}</div></div>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
               <Button variant="outline" size="sm"><Edit className="h-4 w-4 mr-1" />编辑</Button>
