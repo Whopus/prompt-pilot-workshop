@@ -75,9 +75,13 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
   return (
     <section className="p-4">
       {/* Header */}
-      <header className="flex items-center justify-between">
+      <header className="flex items-center justify-between -mt-1 md:-mt-2 mb-4 md:mb-6">
         <h3 className="text-base font-semibold">Session Timeline: {shortId}</h3>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <Label htmlFor="edit-mode" className="text-sm">Edit Mode</Label>
+            <Switch id="edit-mode" checked={editMode} onCheckedChange={setEditMode} />
+          </div>
           <Button size="sm" variant="outline" onClick={handleExport}>
             <Download className="h-4 w-4 mr-1" /> Export
           </Button>
@@ -106,11 +110,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
       <Divider strong />
 
       {/* Controls */}
-      <div className="flex flex-wrap items-center justify-between gap-3 py-3">
-        <div className="flex items-center gap-2">
-          <Label htmlFor="edit-mode" className="text-sm">Edit Mode</Label>
-          <Switch id="edit-mode" checked={editMode} onCheckedChange={setEditMode} />
-        </div>
+      <div className="flex flex-wrap items-center justify-end gap-2 py-3">
         <div className="flex items-center gap-2">
           <Select value={typeFilter} onValueChange={setTypeFilter}>
             <SelectTrigger className="w-[150px]"><SelectValue placeholder="All Types" /></SelectTrigger>
