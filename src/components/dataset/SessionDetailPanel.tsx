@@ -111,32 +111,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
 
       <Divider strong />
 
-      {/* Controls */}
-      <div className="flex flex-wrap items-center justify-end gap-2 py-3">
-        <div className="flex items-center gap-2">
-          <Select value={typeFilter} onValueChange={setTypeFilter}>
-            <SelectTrigger className="w-[150px]"><SelectValue placeholder="All Types" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Types</SelectItem>
-              <SelectItem value="text">Text</SelectItem>
-              <SelectItem value="image">Image</SelectItem>
-              <SelectItem value="file">File</SelectItem>
-              <SelectItem value="tool">Tool</SelectItem>
-              <SelectItem value="mcp">MCP</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select value={roleFilter} onValueChange={setRoleFilter}>
-            <SelectTrigger className="w-[150px]"><SelectValue placeholder="All Roles" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Roles</SelectItem>
-              <SelectItem value="user">USER</SelectItem>
-              <SelectItem value="assistant">ASSISTANT</SelectItem>
-              <SelectItem value="tool">TOOL_* </SelectItem>
-              <SelectItem value="mcp">MCP_* </SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
 
       {/* Timeline container */}
       <div className="rounded-md border">
