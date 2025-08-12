@@ -309,8 +309,19 @@ function TimelineItem({
         <div className="space-y-3">{children}</div>
         {editable && (
           <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-            <ChevronUp className="h-3.5 w-3.5" /> Move Up
-            <ChevronDown className="h-3.5 w-3.5" /> Move Down
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Block actions">
+                  <MoreVertical className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem onClick={() => toast.success("打开详情")}>打开详情</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => {navigator.clipboard.writeText(time + " " + role); toast.success("已复制");}}>
+                  复制摘要
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         )}
       </div>
