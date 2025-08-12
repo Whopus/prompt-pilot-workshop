@@ -27,11 +27,6 @@ const AppDetail = () => {
   const navigate = useNavigate();
   const { id, tab } = useParams<{ id: string; tab?: TabKey }>();
   const currentTab: TabKey = (tab && tabList.includes(tab)) ? (tab as TabKey) : "agents";
-  const onCopy = () => {
-    navigator.clipboard.writeText("sk-************************");
-    toast.success("已复制 API Key", { duration: 3000 });
-  };
-
   return (
     <>
       <Helmet>
@@ -51,22 +46,6 @@ const AppDetail = () => {
       />
       <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
 
-        <Card>
-          <CardContent className="pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground">API Key</span>
-              <span className="font-mono">sk-************************</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" onClick={onCopy}>
-                <Copy className="h-4 w-4 mr-1" /> 复制
-              </Button>
-              <Button variant="outline" size="sm">
-                <RefreshCw className="h-4 w-4 mr-1" /> 重新生成
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
 
         <Tabs value={currentTab} className="w-full">
           <TabsList className="grid w-full grid-cols-6">
@@ -356,6 +335,24 @@ const SettingsSection = () => {
           <div className="space-y-2"><Label>名称</Label><Input placeholder="应用名称" /></div>
           <div className="space-y-2"><Label>状态</Label><div className="flex items-center gap-3"><Switch /><span className="text-sm text-muted-foreground">启用</span></div></div>
           <div className="space-y-2 md:col-span-2"><Label>描述</Label><Input placeholder="应用描述" /></div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader><CardTitle className="text-base">API Key</CardTitle></CardHeader>
+        <CardContent className="pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-muted-foreground">API Key</span>
+            <span className="font-mono">sk-************************</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" onClick={() => { navigator.clipboard.writeText("sk-************************"); toast.success("已复制 API Key", { duration: 3000 }); }}>
+              <Copy className="h-4 w-4 mr-1" /> 复制
+            </Button>
+            <Button variant="outline" size="sm">
+              <RefreshCw className="h-4 w-4 mr-1" /> 重新生成
+            </Button>
+          </div>
         </CardContent>
       </Card>
 
