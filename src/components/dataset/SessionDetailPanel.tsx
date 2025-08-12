@@ -268,9 +268,9 @@ function TimelineItem({
 }) {
   return (
     <article className="grid grid-cols-[28px_1fr] gap-3 py-3">
-      <div className="relative">
+      <div className="relative flex justify-center">
         <span className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-border/60" aria-hidden="true" />
-        <span className="relative z-10 inline-grid h-5 w-5 place-items-center rounded-full border border-border bg-transparent text-primary mx-auto">
+        <span className="relative z-10 mt-1.5 grid h-5 w-5 place-items-center rounded-full border border-border bg-transparent text-primary">
           {role === "USER" && <UserIcon className="h-3.5 w-3.5" />}
           {role === "ASSISTANT" && <Bot className="h-3.5 w-3.5" />}
           {role === "TOOL_CALL" && <Wrench className="h-3.5 w-3.5" />}
