@@ -75,7 +75,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
   return (
     <section className="p-4">
       {/* Header */}
-      <header className="flex items-center justify-between -mt-1 md:-mt-2 mb-4 md:mb-6">
+      <header className="flex items-center justify-between my-4">
         <h3 className="text-base font-semibold">Session Timeline: {shortId}</h3>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
