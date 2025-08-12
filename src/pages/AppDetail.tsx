@@ -18,6 +18,7 @@ import StatusDot from "@/components/common/StatusDot";
 import AgentModal from "@/pages/modals/AgentModal";
 import ToolModal from "@/pages/modals/ToolModal";
 import { toast } from "sonner";
+import SessionDetailPanel, { SessionRow as SDSessRow } from "@/components/dataset/SessionDetailPanel";
 
 const tabList = ["agents", "tools", "mcps", "history", "test", "settings"] as const;
 
@@ -240,16 +241,22 @@ const HistorySection = () => {
 };
 
 const TestSection = () => {
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant' | 'tool'; text: string }[]>([
-    { role: 'assistant', text: '你好，我是测试助手。' },
-    { role: 'user', text: '帮我查询一下天气' },
-    { role: 'tool', text: '调用 weather-api: city=Shanghai' },
-  ]);
+  const [agent, setAgent] = useState<string>("support");
   const [input, setInput] = useState("");
+
+  const testSession: SDSessRow = useMemo(() => ({
+    id: "test-session-001",
+    timestamp: new Date().toISOString(),
+    agent: agent === "support" ? "客服助手" : agent,
+    messages: 3,
+    tokens: 1024,
+    duration: "00:12",
+    status: "processing",
+  }), [agent]);
 
   const send = () => {
     if (!input) return;
-    setMessages(prev => [...prev, { role: 'user', text: input }]);
+    toast.success("已发送", { duration: 2000 });
     setInput("");
   };
 
@@ -257,34 +264,24 @@ const TestSection = () => {
     <section className="space-y-4">
       <Card>
         <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Select>
+          <Select value={agent} onValueChange={setAgent}>
             <SelectTrigger className="md:col-span-1"><SelectValue placeholder="选择 Agent" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="support">客服助手</SelectItem>
             </SelectContent>
           </Select>
-          <Input value="session-001" readOnly className="md:col-span-1" />
+          <Input value={testSession.id} readOnly className="md:col-span-1" />
           <div className="md:col-span-1 flex justify-end">
-            <Button variant="outline" size="sm">清空</Button>
+            <Button variant="outline" size="sm" onClick={() => toast.success("已清空", { duration: 2000 })}>清空</Button>
           </div>
         </CardContent>
       </Card>
 
-      <div className="space-y-3">
-        {messages.map((m, i) => (
-          <div key={i} className={`${m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}`}>
-            {m.role === 'tool' ? (
-              <div className="max-w-[80%] border rounded-md px-3 py-2 bg-callout text-foreground">
-                工具调用：{m.text}
-              </div>
-            ) : (
-              <div className={`max-w-[80%] border rounded-md px-3 py-2 ${m.role === 'user' ? 'bg-background' : 'bg-muted'}`}>
-                {m.text}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+      <Card>
+        <CardContent className="p-0">
+          <SessionDetailPanel session={testSession} />
+        </CardContent>
+      </Card>
 
       <div className="flex items-center gap-2">
         <Input placeholder="输入消息..." value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && send()} />
