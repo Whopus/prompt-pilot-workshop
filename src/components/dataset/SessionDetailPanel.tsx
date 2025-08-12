@@ -288,19 +288,12 @@ function TimelineItem({
             <div className="text-sm font-semibold tracking-wide">{role}</div>
           </div>
           <div className="flex items-center gap-1">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Block actions">
-                  <MoreVertical className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => toast.success("打开详情")}>打开详情</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => {navigator.clipboard.writeText(time + " " + role); toast.success("已复制");}}>
-                  复制摘要
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {editable && (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <ChevronUp className="h-3.5 w-3.5" /> Move Up
+                <ChevronDown className="h-3.5 w-3.5" /> Move Down
+              </div>
+            )}
             <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
               <X className="h-4 w-4" />
             </Button>
@@ -308,21 +301,7 @@ function TimelineItem({
         </div>
         <div className="space-y-3">{children}</div>
         {editable && (
-          <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Block actions">
-                  <MoreVertical className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem onClick={() => toast.success("打开详情")}>打开详情</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => {navigator.clipboard.writeText(time + " " + role); toast.success("已复制");}}>
-                  复制摘要
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+          <div className="mt-2 hidden" />
         )}
       </div>
     </article>
