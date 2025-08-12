@@ -232,12 +232,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             editable={editMode}
             defaultValue={`{\n  "orders": [\n    /* ... */\n  ],\n  "total_spent": 1234.56\n}`}
           />
-          {editMode && (
-            <div className="mt-2 pl-3 flex flex-wrap gap-2">
-              <Button variant="outline" size="sm">View Full Data</Button>
-              <Button variant="outline" size="sm">Export</Button>
-            </div>
-          )}
         </TimelineItem>
       </div>
 
