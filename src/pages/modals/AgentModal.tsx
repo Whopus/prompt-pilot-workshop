@@ -432,7 +432,7 @@ const AgentModal = ({ children, agent }: Props) => {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between h-10">
                 <span className="text-sm text-muted-foreground">已选择工具</span>
               </div>
               <div className="border rounded-md p-2 h-56 overflow-auto scrollbar-thin-dark">
@@ -507,7 +507,7 @@ const AgentModal = ({ children, agent }: Props) => {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between h-10">
                 <span className="text-sm text-muted-foreground">已选择 MCP</span>
               </div>
               <div className="border rounded-md p-2 h-56 overflow-auto scrollbar-thin-dark">
