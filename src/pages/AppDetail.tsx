@@ -56,7 +56,7 @@ const AppDetail = () => {
                     agents: "Agents",
                     tools: "Tools",
                     mcps: "MCPs",
-                    history: "历史",
+                    history: "数据集",
                     test: "测试",
                     settings: "设置",
                   }[t])}
@@ -202,77 +202,35 @@ const McpsSection = () => {
 };
 
 const HistorySection = () => {
-  const rows = [
-    { id: "c1", time: "2025-08-12 10:20", agent: "客服助手", msgs: 6, tokens: 1540, status: "成功", detail: [
-      { role: 'user', text: '你好' },
-      { role: 'assistant', text: '你好！有什么可以帮您？' },
-    ] },
+  const items = [
+    { id: "d1", name: "客服知识库", records: 1240, size: "12.4 MB", updatedAt: "2025-08-10 14:22" },
+    { id: "d2", name: "FAQ 数据集", records: 320, size: "3.1 MB", updatedAt: "2025-08-11 09:10" },
   ];
-  const [open, setOpen] = useState<string | null>(null);
 
   return (
     <section className="space-y-4">
-      <Card>
-        <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <Select>
-            <SelectTrigger><SelectValue placeholder="选择 Agent" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部</SelectItem>
-              <SelectItem value="support">客服助手</SelectItem>
-            </SelectContent>
-          </Select>
-          <Input type="date" />
-          <Input type="date" />
-          <Select>
-            <SelectTrigger><SelectValue placeholder="状态筛选" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部</SelectItem>
-              <SelectItem value="success">成功</SelectItem>
-              <SelectItem value="fail">失败</SelectItem>
-            </SelectContent>
-          </Select>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>会话ID</TableHead>
-              <TableHead>时间</TableHead>
-              <TableHead>Agent</TableHead>
-              <TableHead>消息数</TableHead>
-              <TableHead>Token</TableHead>
-              <TableHead>状态</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {rows.map(r => (
-              <>
-                <TableRow key={r.id} className="cursor-pointer" onClick={() => setOpen(open === r.id ? null : r.id)}>
-                  <TableCell>{r.id}</TableCell>
-                  <TableCell>{r.time}</TableCell>
-                  <TableCell>{r.agent}</TableCell>
-                  <TableCell>{r.msgs}</TableCell>
-                  <TableCell>{r.tokens}</TableCell>
-                  <TableCell>{r.status}</TableCell>
-                </TableRow>
-                {open === r.id && (
-                  <TableRow>
-                    <TableCell colSpan={6}>
-                      <div className="space-y-2">
-                        {r.detail.map((m, i) => (
-                          <div key={i} className={`text-sm ${m.role === 'user' ? 'text-foreground' : 'text-muted-foreground'}`}>{m.role}: {m.text}</div>
-                        ))}
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                )}
-              </>
-            ))}
-          </TableBody>
-        </Table>
-      </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {items.map((it) => (
+          <div key={it.id} className="w-full justify-self-center">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm space-y-2 text-muted-foreground">
+                <div className="flex items-center justify-between"><span>条目数</span><span className="text-foreground">{it.records}</span></div>
+                <div className="flex items-center justify-between"><span>大小</span><span className="text-foreground">{it.size}</span></div>
+                <div className="flex items-center justify-between"><span>最近更新</span><span className="text-foreground">{it.updatedAt}</span></div>
+              </CardContent>
+              <CardFooter className="flex items-center justify-end gap-2">
+                <Button variant="outline" size="sm"><Edit className="h-4 w-4 mr-1" />编辑</Button>
+                <ConfirmDelete>
+                  <Button variant="outline" size="sm"><Trash2 className="h-4 w-4 mr-1" />删除</Button>
+                </ConfirmDelete>
+              </CardFooter>
+            </Card>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
