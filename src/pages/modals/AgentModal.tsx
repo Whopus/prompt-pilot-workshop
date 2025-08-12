@@ -303,14 +303,16 @@ const AgentModal = ({ children, agent }: Props) => {
         <section className="space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-medium text-muted-foreground">指令</h3>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => onInsertTemplate("客服模板")}>客服模板</Button>
-              <Button variant="outline" size="sm" onClick={() => onInsertTemplate("销售助手模板")}>销售助手模板</Button>
-              <Button variant="outline" size="sm" onClick={() => onInsertTemplate("技术支持模板")}>技术支持模板</Button>
-            </div>
           </div>
           <div className="space-y-2">
-            <Label>系统指令</Label>
+            <div className="flex items-center justify-between">
+              <Label>系统指令</Label>
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("客服模板")}>客服模板</Button>
+                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("销售助手模板")}>销售助手模板</Button>
+                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("技术支持模板")}>技术支持模板</Button>
+              </div>
+            </div>
             <Textarea
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
