@@ -398,7 +398,7 @@ const AgentModal = ({ children, agent }: Props) => {
         {/* Tools & Integrations */}
         <section className="space-y-4 mt-6">
           <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">工具与集成</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4">
             <div className="space-y-2">
               <Input placeholder="搜索可用工具" value={toolSearch} onChange={(e) => setToolSearch(e.target.value)} />
               <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
@@ -468,7 +468,7 @@ const AgentModal = ({ children, agent }: Props) => {
         {/* MCPs */}
         <section className="space-y-4 mt-6">
           <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">MCP 服务</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4">
             <div className="space-y-2">
               <Input placeholder="搜索 MCP" value={mcpSearch} onChange={(e) => setMcpSearch(e.target.value)} />
               <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
