@@ -287,8 +287,8 @@ function TimelineItem({
           <div className="flex items-center gap-1">
             {editable && (
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <ChevronUp className="h-3.5 w-3.5" /> Move Up
-                <ChevronDown className="h-3.5 w-3.5" /> Move Down
+                <ChevronUp className="h-3.5 w-3.5" /> 上移
+                <ChevronDown className="h-3.5 w-3.5" /> 下移
               </div>
             )}
             <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
