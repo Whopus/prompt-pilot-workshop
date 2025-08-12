@@ -298,7 +298,6 @@ const AgentModal = ({ children, agent }: Props) => {
           </div>
         </section>
 
-        <Separator />
 
         {/* Instructions */}
         <section className="space-y-3">
@@ -326,7 +325,6 @@ const AgentModal = ({ children, agent }: Props) => {
           </div>
         </section>
 
-        <Separator />
 
         {/* Parameters */}
         <section className="space-y-4">
@@ -378,7 +376,6 @@ const AgentModal = ({ children, agent }: Props) => {
           </div>
         </section>
 
-        <Separator />
 
         {/* Advanced Settings */}
         <section className="space-y-2">
@@ -431,7 +428,6 @@ const AgentModal = ({ children, agent }: Props) => {
           </Collapsible>
         </section>
 
-        <Separator />
 
         {/* Tools & Integrations */}
         <section className="space-y-3">
@@ -501,7 +497,7 @@ const AgentModal = ({ children, agent }: Props) => {
           </div>
         </section>
 
-        <Separator />
+        
 
         {/* MCPs */}
         <section className="space-y-3">
