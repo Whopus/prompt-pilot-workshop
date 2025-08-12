@@ -54,7 +54,7 @@ const AppsList = () => {
                   <span>Datasets</span>
                   <span className="text-foreground font-medium">{app.datasets ?? 0}</span>
                 </div>
-                <div className="mt-3 rounded-md border p-2.5">
+                <div className="mt-3 rounded-md p-2.5">
                   <div className="mb-1 text-xs text-foreground/90">统计</div>
                   <div className="space-y-0.5 text-xs">
                     <div>今日：会话 12 · Token 45k</div>
