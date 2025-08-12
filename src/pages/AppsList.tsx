@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import NewAppModal from "@/pages/modals/NewAppModal";
 
 const sampleApps = [
-  { id: "1", name: "客服助手", agents: 4, tools: 6, status: "active" as const },
-  { id: "2", name: "分析机器人", agents: 2, tools: 3, status: "idle" as const },
-  { id: "3", name: "内容生成", agents: 3, tools: 5, status: "active" as const },
-  { id: "4", name: "监控预警", agents: 1, tools: 2, status: "error" as const },
+  { id: "1", name: "客服助手", agents: 4, tools: 6, mcps: 2, datasets: 3, status: "active" as const },
+  { id: "2", name: "分析机器人", agents: 2, tools: 3, mcps: 1, datasets: 1, status: "idle" as const },
+  { id: "3", name: "内容生成", agents: 3, tools: 5, mcps: 2, datasets: 4, status: "active" as const },
+  { id: "4", name: "监控预警", agents: 1, tools: 2, mcps: 0, datasets: 2, status: "error" as const },
 ];
 
 const AppsList = () => {
@@ -45,6 +45,21 @@ const AppsList = () => {
                 <div className="flex items-center justify-between py-1">
                   <span>Tools</span>
                   <span>{app.tools}</span>
+                </div>
+                <div className="flex items-center justify-between py-1">
+                  <span>MCPs</span>
+                  <span>{app.mcps ?? 0}</span>
+                </div>
+                <div className="flex items-center justify-between py-1">
+                  <span>Datasets</span>
+                  <span>{app.datasets ?? 0}</span>
+                </div>
+                <div className="mt-3 rounded-md border p-3">
+                  <div className="mb-1 text-foreground">统计</div>
+                  <div className="space-y-1">
+                    <div>今日：会话 12 · Token 45k</div>
+                    <div>总计：会话 12 · Token 45k</div>
+                  </div>
                 </div>
                 <div className="pt-4">
                   <Button asChild variant="outline" className="w-full">
