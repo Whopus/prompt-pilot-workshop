@@ -119,7 +119,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
         <TimelineItem time="10:23:45" role="USER" editable={editMode}>
           <BlockText title="Block 1: Text" editable={editMode} defaultValue="你好，我需要帮助处理订单 #12345" />
           {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-2 pl-3 flex flex-wrap gap-2">
               <Button variant="outline" size="sm"><Plus className="h-3.5 w-3.5 mr-1" /> Add Text</Button>
               <Button variant="outline" size="sm"><ImageIcon className="h-3.5 w-3.5 mr-1" /> Add Image</Button>
               <Button variant="outline" size="sm"><FileIcon className="h-3.5 w-3.5 mr-1" /> Add File</Button>
