@@ -93,9 +93,9 @@ const AgentsSection = () => {
               <StatusDot status={it.status} />
             </CardHeader>
             <CardContent className="pt-3 text-sm space-y-2">
-              <div>
-                <div className="text-muted-foreground">指令</div>
-                <div className="line-clamp-2">{it.instruction}</div>
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-muted-foreground">指令</span>
+                <div className="line-clamp-2 text-right max-w-[70%]">{it.instruction}</div>
               </div>
               <div className="flex items-center justify-between"><span className="text-muted-foreground">工具</span><span>{it.tools}</span></div>
               <div className="flex items-center justify-between"><span className="text-muted-foreground">MCPs</span><span>{it.mcps}</span></div>
