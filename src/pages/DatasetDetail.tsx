@@ -133,9 +133,6 @@ const DatasetDetail = () => {
 
       <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
         {/* Page Title + Export */}
-        <section className="flex items-center">
-          <h2 className="text-[20px] font-semibold">Interaction dataset</h2>
-        </section>
 
         {/* Filters */}
         <section className="py-3">
