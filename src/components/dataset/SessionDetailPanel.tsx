@@ -78,9 +78,12 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
   const handleExport = () => toast.success("导出开始", { duration: 2000 });
 
   return (
-    <section className="p-4">
-      {/* Header */}
-      <header className="flex items-center justify-between -mt-2 mb-1">
+      <section className="relative p-4">
+        <Button size="icon" variant="ghost" onClick={onClose} aria-label="Close session detail" className="absolute right-2 top-2">
+          <X className="h-4 w-4" />
+        </Button>
+        {/* Header */}
+        <header className="flex items-center justify-between -mt-2 mb-1">
         <div className="flex items-center gap-3">
           <h3 className="text-base font-semibold">Session Timeline: {shortId}</h3>
           <div className="flex items-center gap-2">
@@ -88,14 +91,11 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             <Switch id="edit-mode" checked={editMode} onCheckedChange={setEditMode} />
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <Button size="sm" variant="outline" onClick={handleExport}>
-            <Download className="h-4 w-4 mr-1" /> Export
-          </Button>
-          <Button size="icon" variant="ghost" onClick={onClose} aria-label="Close session detail">
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="outline" onClick={handleExport}>
+              <Download className="h-4 w-4 mr-1" /> Export
+            </Button>
+          </div>
       </header>
 
       <Divider strong />
