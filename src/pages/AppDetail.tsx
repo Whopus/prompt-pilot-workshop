@@ -46,10 +46,6 @@ const AppDetail = () => {
               <ChevronLeft className="h-4 w-4" /> 返回
             </Button>
             <h1 className="text-lg font-semibold">应用 #{id}</h1>
-            <div className="ml-2 flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">状态</span>
-              <Switch />
-            </div>
           </div>
         }
       />
@@ -358,6 +354,7 @@ const SettingsSection = () => {
         <CardHeader><CardTitle className="text-base">基本信息</CardTitle></CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2"><Label>名称</Label><Input placeholder="应用名称" /></div>
+          <div className="space-y-2"><Label>状态</Label><div className="flex items-center gap-3"><Switch /><span className="text-sm text-muted-foreground">启用</span></div></div>
           <div className="space-y-2 md:col-span-2"><Label>描述</Label><Input placeholder="应用描述" /></div>
         </CardContent>
       </Card>
