@@ -291,9 +291,11 @@ function TimelineItem({
                 <ChevronDown className="h-3.5 w-3.5" /> 下移
               </div>
             )}
-            <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
-              <X className="h-4 w-4" />
-            </Button>
+             {editable && (
+               <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
+                 <X className="h-4 w-4" />
+               </Button>
+             )}
           </div>
         </div>
         <div className="space-y-3">{children}</div>
@@ -309,12 +311,14 @@ function BlockText({ title, editable, defaultValue }: { title: string; editable:
   const [value, setValue] = useState(defaultValue ?? "");
   return (
     <div className="rounded-md bg-background">
-        <div className="flex items-center justify-between pl-3 pr-0 pt-1 pb-0">
-        <SectionTitle>{title}</SectionTitle>
-        <Button variant="ghost" size="icon" aria-label="Delete text block" onClick={() => toast.success("删除文本块") }>
-          <X className="h-4 w-4" />
-        </Button>
-      </div>
+        {editable && (
+          <div className="flex items-center justify-between pl-3 pr-0 pt-1 pb-0">
+            <SectionTitle>{title}</SectionTitle>
+            <Button variant="ghost" size="icon" aria-label="Delete text block" onClick={() => toast.success("删除文本块") }>
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
       
       <div className="p-3">
         {editable ? (
@@ -330,12 +334,14 @@ function BlockText({ title, editable, defaultValue }: { title: string; editable:
 function BlockImage({ title, editable, filename }: { title: string; editable: boolean; filename?: string }) {
   return (
     <div className="rounded-md bg-background">
-    <div className="flex items-center justify-between px-3 py-1.5">
+    {editable && (
+      <div className="flex items-center justify-between px-3 py-1.5">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete image block" onClick={() => toast.success("删除图片块") }>
           <X className="h-4 w-4" />
         </Button>
       </div>
+    )}
       <div className="p-3 space-y-2">
         <div className="flex items-center gap-3">
           <div className="h-16 w-24 overflow-hidden rounded bg-muted">
@@ -364,12 +370,14 @@ function BlockCode({ title, editable, language, defaultValue }: { title: string;
   const [value, setValue] = useState(defaultValue ?? "");
   return (
     <div className="rounded-md bg-background">
-    <div className="flex items-center justify-between px-3 py-1.5">
+    {editable && (
+      <div className="flex items-center justify-between px-3 py-1.5">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete code block" onClick={() => toast.success("删除代码块") }>
           <X className="h-4 w-4" />
         </Button>
       </div>
+    )}
       <div className="p-3">
         {editable ? (
           <Textarea value={value} onChange={(e) => setValue(e.target.value)} rows={6} className="font-mono text-xs" />
