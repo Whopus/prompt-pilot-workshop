@@ -270,7 +270,10 @@ const TestSection = () => {
               <SelectItem value="support">客服助手</SelectItem>
             </SelectContent>
           </Select>
-          <Input value={testSession.id} readOnly className="md:col-span-1" />
+          <div className="md:col-span-1 flex items-center gap-2">
+            <span className="text-sm text-muted-foreground">Session ID</span>
+            <span className="text-sm font-mono">{testSession.id}</span>
+          </div>
           <div className="md:col-span-1 flex justify-end">
             <Button variant="outline" size="sm" onClick={() => toast.success("已清空", { duration: 2000 })}>清空</Button>
           </div>
