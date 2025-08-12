@@ -164,12 +164,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             editable={editMode}
             defaultValue={`{\n  "order_id": "12345",\n  "include_details": true\n}`}
           />
-          {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
-              <Button variant="outline" size="sm">Re-run</Button>
-              <Button variant="outline" size="sm">Edit Parameters</Button>
-            </div>
-          )}
         </TimelineItem>
 
         <Divider />
