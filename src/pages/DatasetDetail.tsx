@@ -133,9 +133,10 @@ const DatasetDetail = () => {
 
       <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
         {/* Page Title + Export */}
-        <section className="flex items-center justify-between">
+        <section className="flex items-center">
           <h2 className="text-[20px] font-semibold">Interaction dataset</h2>
-          <DropdownMenu>
+          <div className="ml-auto">
+            <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <Download className="h-4 w-4 mr-1" /> 导出 <ChevronDown className="h-4 w-4 ml-1" />
@@ -152,6 +153,7 @@ const DatasetDetail = () => {
               <DropdownMenuItem onClick={exportAction("导出分析报告 PDF")}>导出分析报告（PDF）</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          </div>
         </section>
 
         {/* Filters */}
