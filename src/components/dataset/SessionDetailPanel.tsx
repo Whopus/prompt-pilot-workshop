@@ -79,9 +79,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
 
   return (
       <section className="relative p-4">
-        <Button size="icon" variant="ghost" onClick={onClose} aria-label="Close session detail" className="absolute right-2 top-2">
-          <X className="h-4 w-4" />
-        </Button>
         {/* Header */}
         <header className="flex items-center justify-between -mt-2 mb-1">
         <div className="flex items-center gap-3">
