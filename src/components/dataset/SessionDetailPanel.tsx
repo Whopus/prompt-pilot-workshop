@@ -165,7 +165,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             defaultValue={`{\n  "order_id": "12345",\n  "include_details": true\n}`}
           />
           {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-2 pl-3 flex flex-wrap gap-2">
               <Button variant="outline" size="sm">Approve</Button>
               <Button variant="outline" size="sm">Reject</Button>
               <Button variant="outline" size="sm">Feedback</Button>
@@ -203,7 +203,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             defaultValue={`{\n  "customer_id": "cust_123",\n  "date_range": "last_30_days"\n}`}
           />
           {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-2 pl-3 flex flex-wrap gap-2">
               <Button variant="outline" size="sm">Approve</Button>
               <Button variant="outline" size="sm">Reject</Button>
             </div>
@@ -233,7 +233,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             defaultValue={`{\n  "orders": [\n    /* ... */\n  ],\n  "total_spent": 1234.56\n}`}
           />
           {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-2 pl-3 flex flex-wrap gap-2">
               <Button variant="outline" size="sm">View Full Data</Button>
               <Button variant="outline" size="sm">Export</Button>
             </div>
