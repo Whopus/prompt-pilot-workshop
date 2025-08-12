@@ -56,8 +56,8 @@ const AppsList = () => {
                 </div>
                 <div className="mt-3 rounded-md p-2.5">
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="text-foreground">今日：会话 12 · Token 45k</div>
-                    <div className="text-foreground text-right">总计：会话 12 · Token 45k</div>
+                    <div className="text-foreground">今日统计</div>
+                    <div className="text-foreground text-right">会话 12 · Token 45k</div>
                   </div>
                 </div>
                 <div className="pt-3">
