@@ -315,7 +315,7 @@ function BlockText({ title, editable, defaultValue }: { title: string; editable:
           <X className="h-4 w-4" />
         </Button>
       </div>
-      <div className="px-3"><div className="h-px bg-border" /></div>
+      
       <div className="p-3">
         {editable ? (
           <Textarea value={value} onChange={(e) => setValue(e.target.value)} rows={3} />
