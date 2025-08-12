@@ -300,7 +300,7 @@ const DatasetDetail = () => {
       </main>
 
       <Dialog open={detailOpen} onOpenChange={(o) => { if (!o) { setDetailOpen(false); setSelected(null); } }}>
-        <DialogContent hideClose className="max-w-5xl p-0 max-h-[85vh] overflow-y-auto">
+        <DialogContent hideClose className="max-w-6xl max-h-[85vh] overflow-y-auto p-4 md:p-6">
           {selected && (
             <SessionDetailPanel session={selected} onClose={() => { setDetailOpen(false); setSelected(null); }} />
           )}
