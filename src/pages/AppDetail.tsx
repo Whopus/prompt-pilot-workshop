@@ -133,9 +133,10 @@ const ToolsSection = () => {
   ];
   return (
     <section className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((it) => (
-          <Card key={it.id}>
+          <div key={it.id} className="w-full justify-self-center">
+            <Card>
             <CardHeader>
               <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
             </CardHeader>
@@ -153,6 +154,7 @@ const ToolsSection = () => {
               </ConfirmDelete>
             </CardFooter>
           </Card>
+          </div>
         ))}
       </div>
       <div className="fixed left-1/2 bottom-6 -translate-x-1/2 z-40">
@@ -170,9 +172,10 @@ const McpsSection = () => {
   ];
   return (
     <section className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((it) => (
-          <Card key={it.id}>
+          <div key={it.id} className="w-full justify-self-center">
+            <Card>
             <CardHeader>
               <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
             </CardHeader>
@@ -188,6 +191,7 @@ const McpsSection = () => {
               </ConfirmDelete>
             </CardFooter>
           </Card>
+          </div>
         ))}
       </div>
       <div className="fixed left-1/2 bottom-6 -translate-x-1/2 z-40">
