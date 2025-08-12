@@ -164,6 +164,13 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             editable={editMode}
             defaultValue={`{\n  "order_id": "12345",\n  "include_details": true\n}`}
           />
+          {editMode && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Button variant="outline" size="sm">Approve</Button>
+              <Button variant="outline" size="sm">Reject</Button>
+              <Button variant="outline" size="sm">Feedback</Button>
+            </div>
+          )}
         </TimelineItem>
 
         <Divider />
@@ -180,11 +187,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
             editable={editMode}
             defaultValue={`{\n  "status": "shipped",\n  "tracking": "FDX123456789",\n  "eta": "2024-01-15"\n}`}
           />
-          {editMode && (
-            <div className="mt-2 flex flex-wrap gap-2">
-              <Button variant="outline" size="sm">Mock Different Response</Button>
-            </div>
-          )}
         </TimelineItem>
 
         <Divider />
