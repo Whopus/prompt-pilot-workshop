@@ -131,11 +131,6 @@ const ToolsSection = () => {
   ];
   return (
     <section className="space-y-4">
-      <div className="flex items-center justify-end">
-        <ToolModal>
-          <Button size="sm">新增</Button>
-        </ToolModal>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((it) => (
           <Card key={it.id}>
@@ -157,6 +152,11 @@ const ToolsSection = () => {
             </CardFooter>
           </Card>
         ))}
+      </div>
+      <div className="fixed left-1/2 bottom-6 -translate-x-1/2 z-40">
+        <ToolModal>
+          <Button size="lg" className="shadow-lg">新增tools</Button>
+        </ToolModal>
       </div>
     </section>
   );
