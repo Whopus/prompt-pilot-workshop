@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
 import { toast } from "sonner";
 
 // --- Types ---
@@ -364,7 +364,21 @@ const AgentModal = ({ children, agent }: Props) => {
               <Slider value={[topP]} min={0} max={1} step={0.05} onValueChange={(v) => setTopP(v[0])} />
               <p className="text-xs text-muted-foreground">控制输出多样性</p>
             </div>
-            <div className="space-y-2 md:col-span-2">
+            <div className="space-y-2">
+              <Label>响应格式</Label>
+              <Select value={responseFormat} onValueChange={setResponseFormat}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="auto">Auto</SelectItem>
+                  <SelectItem value="json_object">JSON Object</SelectItem>
+                  <SelectItem value="json_schema">JSON Schema</SelectItem>
+                  <SelectItem value="text">Text</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
               <Label>最大响应 Tokens</Label>
               <Input
                 type="number"
@@ -379,56 +393,6 @@ const AgentModal = ({ children, agent }: Props) => {
         </section>
 
 
-        {/* Advanced Settings */}
-        <section className="space-y-2">
-          <Collapsible open={advancedOpen} onOpenChange={setAdvancedOpen}>
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground">高级设置</h3>
-              <CollapsibleTrigger asChild>
-                <Button variant="ghost" size="sm">{advancedOpen ? "收起" : "展开"}</Button>
-              </CollapsibleTrigger>
-            </div>
-            <CollapsibleContent className="space-y-4 pt-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>响应格式</Label>
-                  <Select value={responseFormat} onValueChange={setResponseFormat}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="auto">Auto</SelectItem>
-                      <SelectItem value="json_object">JSON Object</SelectItem>
-                      <SelectItem value="json_schema">JSON Schema</SelectItem>
-                      <SelectItem value="text">Text</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label>工具资源（JSON）</Label>
-                  <Textarea
-                    value={toolResources}
-                    onChange={(e) => {
-                      setToolResources(e.target.value);
-                      try {
-                        JSON.parse(e.target.value || "{}");
-                        setToolResourcesError(null);
-                      } catch {
-                        setToolResourcesError("JSON 无效");
-                      }
-                    }}
-                    placeholder="{}"
-                    rows={6}
-                    className="font-mono"
-                  />
-                  {toolResourcesError && (
-                    <p className="text-xs text-destructive">{toolResourcesError}</p>
-                  )}
-                </div>
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
-        </section>
 
 
         {/* Tools & Integrations */}
