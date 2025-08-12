@@ -145,8 +145,10 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
           <BlockImage title="Block 2: Image" editable={editMode} filename="receipt.jpg" />
           <BlockText title="Block 3: Text" editable={editMode} defaultValue="可以帮我处理退款吗？" />
           {editMode && (
-            <div className="mt-2">
-              <Button variant="outline" size="sm"><Plus className="h-3.5 w-3.5 mr-1" /> Add Block</Button>
+            <div className="mt-2 pl-3 flex flex-wrap gap-2">
+              <Button variant="outline" size="sm"><Plus className="h-3.5 w-3.5 mr-1" /> Add Text</Button>
+              <Button variant="outline" size="sm"><ImageIcon className="h-3.5 w-3.5 mr-1" /> Add Image</Button>
+              <Button variant="outline" size="sm"><FileIcon className="h-3.5 w-3.5 mr-1" /> Add File</Button>
             </div>
           )}
         </TimelineItem>
