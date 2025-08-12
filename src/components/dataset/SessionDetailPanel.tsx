@@ -101,7 +101,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
       <Divider strong />
 
       {/* Meta */}
-      <div className="grid grid-cols-1 gap-1 py-3 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-1 py-3 md:grid-cols-2 mb-5 md:mb-7">
         <div className="flex flex-wrap items-center gap-3">
           <MetaRow label="Agent" value={session.agent || "-"} />
           <Pill>Model: GPT-4</Pill>
@@ -114,7 +114,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
         </div>
       </div>
 
-      <Divider strong />
 
 
       {/* Timeline container */}
