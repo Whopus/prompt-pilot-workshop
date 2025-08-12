@@ -214,18 +214,18 @@ const DatasetDetail = () => {
             </div>
           </Card>
         ) : (
-          <section className="rounded-md border bg-background overflow-auto">
+          <section className="overflow-auto">
             <Table>
-              <TableHeader className="sticky top-0 bg-muted z-10">
-                <TableRow className="h-10">
-                  <TableHead className="w-[180px]">Session ID</TableHead>
-                  <TableHead className="w-[140px]">Timestamp</TableHead>
-                  <TableHead className="w-[160px]">Agent</TableHead>
-                  <TableHead className="text-center w-[90px]">Msgs</TableHead>
-                  <TableHead className="text-right w-[90px]">Tokens</TableHead>
-                  <TableHead className="text-right w-[90px]">Duration</TableHead>
-                  <TableHead className="text-center w-[100px]">Status</TableHead>
-                  <TableHead className="text-center w-[100px]">Actions</TableHead>
+              <TableHeader>
+                <TableRow className="h-12 border-b-2 border-border">
+                  <TableHead className="w-[180px] font-semibold">Session ID</TableHead>
+                  <TableHead className="w-[140px] font-semibold">Timestamp</TableHead>
+                  <TableHead className="w-[160px] font-semibold">Agent</TableHead>
+                  <TableHead className="text-center w-[90px] font-semibold">Msgs</TableHead>
+                  <TableHead className="text-right w-[90px] font-semibold">Tokens</TableHead>
+                  <TableHead className="text-right w-[90px] font-semibold">Duration</TableHead>
+                  <TableHead className="text-center w-[100px] font-semibold">Status</TableHead>
+                  <TableHead className="text-center w-[100px] font-semibold">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -233,7 +233,7 @@ const DatasetDetail = () => {
                   <>
                     <TableRow
                       key={r.id}
-                      className="h-12 cursor-pointer transition-colors hover:bg-muted/60"
+                      className="h-12 cursor-pointer transition-colors hover:bg-muted/60 border-b border-border/40"
                       onClick={() => setOpen(open === r.id ? null : r.id)}
                     >
                       <TableCell className="font-mono text-sm" title={r.id}>
