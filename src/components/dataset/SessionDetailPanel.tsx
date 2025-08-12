@@ -59,7 +59,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 function Divider({ strong = false }: { strong?: boolean }) {
-  return <div className={strong ? "h-px bg-border" : "h-px bg-border/50"} />;
+  return null;
 }
 
 export default function SessionDetailPanel({ session, onClose }: SessionDetailPanelProps) {
