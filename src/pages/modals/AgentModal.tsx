@@ -439,7 +439,7 @@ const AgentModal = ({ children, agent }: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="space-y-2">
               <Input placeholder="搜索可用工具" value={toolSearch} onChange={(e) => setToolSearch(e.target.value)} />
-              <div className="border rounded-md p-2 max-h-56 overflow-auto">
+              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
                 {filteredAvailableTools.map((t) => (
                   <label key={t.id} className="block px-2 py-1 cursor-pointer">
                     <input
@@ -473,7 +473,7 @@ const AgentModal = ({ children, agent }: Props) => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">已选择工具</span>
               </div>
-              <div className="border rounded-md p-2 max-h-56 overflow-auto">
+              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
                 {selectedTools.map((t, idx) => (
                   <label key={t.id} className="block px-2 py-1 cursor-pointer">
                     <input
@@ -509,7 +509,7 @@ const AgentModal = ({ children, agent }: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="space-y-2">
               <Input placeholder="搜索 MCP" value={mcpSearch} onChange={(e) => setMcpSearch(e.target.value)} />
-              <div className="border rounded-md p-2 max-h-56 overflow-auto">
+              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
                 {filteredAvailableMCPs.map((m) => (
                   <label key={m.id} className="block px-2 py-1 cursor-pointer">
                     <input
@@ -542,7 +542,7 @@ const AgentModal = ({ children, agent }: Props) => {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">已选择 MCP</span>
               </div>
-              <div className="border rounded-md p-2 max-h-56 overflow-auto">
+              <div className="border rounded-md p-2 max-h-56 overflow-auto scrollbar-thin-dark">
                 {selectedMCPs.map((m, idx) => (
                   <label key={m.id} className="block px-2 py-1 cursor-pointer">
                     <input
