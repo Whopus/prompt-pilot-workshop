@@ -75,13 +75,15 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
   return (
     <section className="p-4">
       {/* Header */}
-      <header className="flex items-center justify-between my-4">
-        <h3 className="text-base font-semibold">Session Timeline: {shortId}</h3>
+      <header className="flex items-center justify-between my-3">
         <div className="flex items-center gap-3">
+          <h3 className="text-base font-semibold">Session Timeline: {shortId}</h3>
           <div className="flex items-center gap-2">
             <Label htmlFor="edit-mode" className="text-sm">Edit Mode</Label>
             <Switch id="edit-mode" checked={editMode} onCheckedChange={setEditMode} />
           </div>
+        </div>
+        <div className="flex items-center gap-2">
           <Button size="sm" variant="outline" onClick={handleExport}>
             <Download className="h-4 w-4 mr-1" /> Export
           </Button>
