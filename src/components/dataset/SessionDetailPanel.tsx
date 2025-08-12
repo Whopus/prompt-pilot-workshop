@@ -205,8 +205,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
           {editMode && (
             <div className="mt-2 flex flex-wrap gap-2">
               <Button variant="outline" size="sm">Approve</Button>
-              <Button variant="outline" size="sm">Deny</Button>
-              <Button variant="outline" size="sm">Auto-Approve</Button>
+              <Button variant="outline" size="sm">Reject</Button>
             </div>
           )}
         </TimelineItem>
