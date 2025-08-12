@@ -87,7 +87,8 @@ const AgentsSection = () => {
     <section className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((it) => (
-          <Card key={it.id}>
+          <div key={it.id} className="w-3/4 justify-self-center">
+            <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
               <StatusDot status={it.status} />
@@ -113,6 +114,7 @@ const AgentsSection = () => {
               </ConfirmDelete>
             </CardFooter>
           </Card>
+          </div>
         ))}
       </div>
       <div className="fixed left-1/2 bottom-6 -translate-x-1/2 z-40">
