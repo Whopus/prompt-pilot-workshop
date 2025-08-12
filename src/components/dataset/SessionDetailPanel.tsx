@@ -17,6 +17,11 @@ import {
   ChevronDown,
   ClipboardCopy,
   ExternalLink,
+  User as UserIcon,
+  Bot,
+  Wrench,
+  CheckCircle2,
+  Database,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -113,7 +118,7 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
 
 
       {/* Timeline container */}
-      <div className="rounded-md border">
+      <div>
         {/* USER item 1 */}
         <TimelineItem time="10:23:45" role="USER" editable={editMode}>
           <BlockText title="Block 1: Text" editable={editMode} defaultValue="你好，我需要帮助处理订单 #12345" />
@@ -126,7 +131,6 @@ export default function SessionDetailPanel({ session, onClose }: SessionDetailPa
           )}
         </TimelineItem>
 
-        <Divider />
 
         {/* ASSISTANT item */}
         <TimelineItem time="10:23:46" role="ASSISTANT" editable={editMode}>
@@ -264,39 +268,52 @@ function TimelineItem({
   children: React.ReactNode;
 }) {
   return (
-    <article className="px-4 py-3">
-      <div className="flex items-start gap-3">
-        <div className="mt-1 w-[64px] shrink-0 text-xs text-muted-foreground">{time}</div>
-        <div className="flex-1">
-          <div className="mb-2 flex items-center justify-between">
-            <div className="text-sm font-semibold tracking-wide">{role}</div>
-            <div className="flex items-center gap-1">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label="Block actions">
-                    <MoreVertical className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => toast.success("打开详情")}>打开详情</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => {navigator.clipboard.writeText(time + " " + role); toast.success("已复制");}}>
-                    复制摘要
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-          <div className="space-y-3">{children}</div>
-          {editable && (
-            <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-              <ChevronUp className="h-3.5 w-3.5" /> Move Up
-              <ChevronDown className="h-3.5 w-3.5" /> Move Down
-            </div>
+    <article className="grid grid-cols-[28px_1fr] gap-3 py-3">
+      <div className="relative">
+        <span className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-border/60" aria-hidden="true" />
+        <span className="relative z-10 mt-1 inline-grid h-5 w-5 place-items-center rounded-full border border-border bg-background text-primary">
+          {role === "USER" && <UserIcon className="h-3.5 w-3.5" />}
+          {role === "ASSISTANT" && <Bot className="h-3.5 w-3.5" />}
+          {role === "TOOL_CALL" && <Wrench className="h-3.5 w-3.5" />}
+          {role === "TOOL_RESPONSE" && <CheckCircle2 className="h-3.5 w-3.5" />}
+          {role.startsWith("MCP") && <Database className="h-3.5 w-3.5" />}
+          {!["USER","ASSISTANT","TOOL_CALL","TOOL_RESPONSE"].includes(role) && !role.startsWith("MCP") && (
+            <UserIcon className="h-3.5 w-3.5" />
           )}
+        </span>
+      </div>
+      <div>
+        <div className="mb-2 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">{time}</span>
+            <div className="text-sm font-semibold tracking-wide">{role}</div>
+          </div>
+          <div className="flex items-center gap-1">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Block actions">
+                  <MoreVertical className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => toast.success("打开详情")}>打开详情</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => {navigator.clipboard.writeText(time + " " + role); toast.success("已复制");}}>
+                  复制摘要
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Button variant="ghost" size="icon" aria-label="Remove block" onClick={() => toast.success("已删除块") }>
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
+        <div className="space-y-3">{children}</div>
+        {editable && (
+          <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+            <ChevronUp className="h-3.5 w-3.5" /> Move Up
+            <ChevronDown className="h-3.5 w-3.5" /> Move Down
+          </div>
+        )}
       </div>
     </article>
   );
