@@ -309,7 +309,7 @@ function BlockText({ title, editable, defaultValue }: { title: string; editable:
   const [value, setValue] = useState(defaultValue ?? "");
   return (
     <div className="rounded-md bg-background">
-        <div className="flex items-center justify-between pl-3 pr-0 py-1">
+        <div className="flex items-center justify-between pl-3 pr-0 pt-1 pb-0">
         <SectionTitle>{title}</SectionTitle>
         <Button variant="ghost" size="icon" aria-label="Delete text block" onClick={() => toast.success("删除文本块") }>
           <X className="h-4 w-4" />
