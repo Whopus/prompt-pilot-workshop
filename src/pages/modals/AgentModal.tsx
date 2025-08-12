@@ -295,37 +295,37 @@ const AgentModal = ({ children, agent }: Props) => {
                 maxLength={500}
               />
             </div>
-          </div>
-        </section>
-
-
-        {/* Instructions */}
-        <section className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium text-muted-foreground">指令</h3>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <Label>系统指令</Label>
-              <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("客服模板")}>客服模板</Button>
-                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("销售助手模板")}>销售助手模板</Button>
-                <Button variant="outline" size="sm" onClick={() => onInsertTemplate("技术支持模板")}>技术支持模板</Button>
+            <div className="space-y-2 md:col-span-2">
+              <div className="flex items-center justify-between">
+                <Label>系统指令</Label>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" onClick={() => onInsertTemplate("客服模板")}>
+                    客服模板
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={() => onInsertTemplate("销售助手模板")}>
+                    销售助手模板
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={() => onInsertTemplate("技术支持模板")}>
+                    技术支持模板
+                  </Button>
+                </div>
+              </div>
+              <Textarea
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
+                placeholder="输入详细的系统指令..."
+                rows={8}
+                className="font-mono"
+              />
+              <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <span>建议包含角色、风格、边界等细节</span>
+                <span>{instructions.length.toLocaleString()} 字符</span>
               </div>
             </div>
-            <Textarea
-              value={instructions}
-              onChange={(e) => setInstructions(e.target.value)}
-              placeholder="输入详细的系统指令..."
-              rows={8}
-              className="font-mono"
-            />
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
-              <span>建议包含角色、风格、边界等细节</span>
-              <span>{instructions.length.toLocaleString()} 字符</span>
-            </div>
           </div>
         </section>
+
+
 
 
         {/* Parameters */}
