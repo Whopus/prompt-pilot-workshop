@@ -42,6 +42,7 @@ import {
   Trash2,
   ExternalLink,
 } from "lucide-react";
+import SessionDetailPanel from "@/components/dataset/SessionDetailPanel";
 
 // Types
 interface SessionRow {
@@ -283,43 +284,9 @@ const DatasetDetail = () => {
                     </TableRow>
 
                     {open === r.id && (
-                      <TableRow className="bg-muted/30">
-                        <TableCell colSpan={8}>
-                          <div className="p-4 space-y-4 animate-fade-in">
-                            <div className="flex flex-wrap items-center gap-4 text-sm">
-                              <div>Session: <span className="font-mono">{r.id}</span></div>
-                              <div>Duration: {r.duration}</div>
-                              <div>Status: {r.status}</div>
-                            </div>
-
-                            <div className="rounded-md border bg-background p-3 max-h-[400px] overflow-auto space-y-3">
-                              <div>
-                                <div className="text-xs font-semibold text-muted-foreground">[10:23:45] USER:</div>
-                                <div>你好，我需要帮助处理订单 #12345</div>
-                              </div>
-                              <div>
-                                <div className="text-xs font-semibold text-muted-foreground">[10:23:46] ASSISTANT:</div>
-                                <div>好的，我来帮您查看该订单的状态。</div>
-                              </div>
-                              <div className="bg-callout rounded p-2">
-                                <div className="text-xs font-semibold text-muted-foreground">[10:23:47] TOOL CALL: get_order_status</div>
-                                <pre className="font-mono text-xs whitespace-pre-wrap">{`{ "order_id": "12345" }`}</pre>
-                                <pre className="font-mono text-xs whitespace-pre-wrap">{`{ "status": "shipped", "tracking": "FDX123456" }`}</pre>
-                              </div>
-                              <div>
-                                <div className="text-xs font-semibold text-muted-foreground">[10:23:48] ASSISTANT:</div>
-                                <div>您的订单 #12345 已发货，快递单号：FDX123456。</div>
-                              </div>
-                            </div>
-
-                            <div className="flex items-center gap-2 justify-end">
-                              <Button variant="outline" size="sm" onClick={() => toast.success("已复制全部内容")}>复制全部</Button>
-                              <Button variant="outline" size="sm" onClick={exportAction("导出会话 JSON")}>导出 JSON</Button>
-                              <Link to={`/apps/${id}/test`}>
-                                <Button size="sm">在测试中打开</Button>
-                              </Link>
-                            </div>
-                          </div>
+                      <TableRow className="bg-background">
+                        <TableCell colSpan={8} className="p-0">
+                          <SessionDetailPanel session={r} onClose={() => setOpen(null)} />
                         </TableCell>
                       </TableRow>
                     )}
