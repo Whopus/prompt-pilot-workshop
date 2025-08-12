@@ -253,8 +253,8 @@ const AgentModal = ({ children, agent }: Props) => {
         </DialogHeader>
 
         {/* Basic Information */}
-        <section className="space-y-3 pt-2">
-          <h3 className="text-sm font-medium text-muted-foreground">基础信息</h3>
+        <section className="space-y-4 pt-2">
+          <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">基础信息</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2 md:col-span-2">
               <Label>Agent 名称</Label>
@@ -329,8 +329,8 @@ const AgentModal = ({ children, agent }: Props) => {
 
 
         {/* Parameters */}
-        <section className="space-y-4">
-          <h3 className="text-sm font-medium text-muted-foreground">参数</h3>
+        <section className="space-y-5 mt-6">
+          <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">高级参数</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
@@ -396,8 +396,8 @@ const AgentModal = ({ children, agent }: Props) => {
 
 
         {/* Tools & Integrations */}
-        <section className="space-y-3">
-          <h3 className="text-sm font-medium text-muted-foreground">工具与集成</h3>
+        <section className="space-y-4 mt-6">
+          <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">工具与集成</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="space-y-2">
               <Input placeholder="搜索可用工具" value={toolSearch} onChange={(e) => setToolSearch(e.target.value)} />
@@ -466,8 +466,8 @@ const AgentModal = ({ children, agent }: Props) => {
         
 
         {/* MCPs */}
-        <section className="space-y-3">
-          <h3 className="text-sm font-medium text-muted-foreground">MCP 服务</h3>
+        <section className="space-y-4 mt-6">
+          <h3 className="text-sm font-medium text-muted-foreground pb-2 border-b">MCP 服务</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="space-y-2">
               <Input placeholder="搜索 MCP" value={mcpSearch} onChange={(e) => setMcpSearch(e.target.value)} />
