@@ -104,8 +104,8 @@ const AppDetail = () => {
 
 const AgentsSection = () => {
   const items = [
-    { id: "a1", name: "客服助手", model: "gpt-4o", instruction: "请礼貌回答用户问题…", tools: 3, status: "active" as const },
-    { id: "a2", name: "内容生成", model: "gpt-4.1", instruction: "生成简洁风格内容…", tools: 2, status: "idle" as const },
+    { id: "a1", name: "客服助手", instruction: "请礼貌回答用户问题…", tools: 3, mcps: 1, usage: { calls: 12, tokens: 4500 }, status: "active" as const },
+    { id: "a2", name: "内容生成", instruction: "生成简洁风格内容…", tools: 2, mcps: 0, usage: { calls: 5, tokens: 2100 }, status: "idle" as const },
   ];
 
   return (
@@ -123,12 +123,16 @@ const AgentsSection = () => {
               <StatusDot status={it.status} />
             </CardHeader>
             <CardContent className="text-sm space-y-2">
-              <div className="flex items-center justify-between"><span className="text-muted-foreground">模型</span><span>{it.model}</span></div>
               <div>
                 <div className="text-muted-foreground">指令</div>
                 <div className="line-clamp-2">{it.instruction}</div>
               </div>
               <div className="flex items-center justify-between"><span className="text-muted-foreground">工具</span><span>{it.tools}</span></div>
+              <div className="flex items-center justify-between"><span className="text-muted-foreground">MCPs</span><span>{it.mcps}</span></div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">使用统计</span>
+                <span>今日 {it.usage.calls} 次 · {Math.round(it.usage.tokens / 100) / 10}k tokens</span>
+              </div>
             </CardContent>
             <CardFooter className="flex items-center justify-end gap-2">
               <AgentModal agent={it}>
