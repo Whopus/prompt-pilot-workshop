@@ -1,15 +1,20 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-const AppHeader = () => {
+const AppHeader = ({ leftSlot }: { leftSlot?: ReactNode }) => {
   return (
     <header className="fixed top-0 left-0 right-0 border-b bg-background/80 backdrop-blur supports-backdrop-blur:z-50 z-50">
       <div className="container h-14 flex items-center justify-between">
-        <Link to="/apps" className="font-semibold text-base">
-          AIgents
-        </Link>
+        {leftSlot ? (
+          leftSlot
+        ) : (
+          <Link to="/apps" className="font-semibold text-base">
+            AIgents
+          </Link>
+        )}
 
         <div className="flex items-center gap-3">
           <DropdownMenu>

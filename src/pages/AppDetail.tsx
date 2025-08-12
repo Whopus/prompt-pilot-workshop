@@ -39,18 +39,21 @@ const AppDetail = () => {
         <meta name="description" content="管理应用的 Agents、Tools、MCPs、历史、测试与设置" />
         <link rel="canonical" href={window.location.href} />
       </Helmet>
-      <AppHeader />
-      <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
-        <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
-            <ChevronLeft className="h-4 w-4" /> 返回
-          </Button>
-          <h1 className="text-lg font-semibold">应用 #{id}</h1>
-          <div className="ml-auto flex items-center gap-3">
-            <span className="text-sm text-muted-foreground">状态</span>
-            <Switch />
+      <AppHeader
+        leftSlot={
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
+              <ChevronLeft className="h-4 w-4" /> 返回
+            </Button>
+            <h1 className="text-lg font-semibold">应用 #{id}</h1>
+            <div className="ml-2 flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">状态</span>
+              <Switch />
+            </div>
           </div>
-        </div>
+        }
+      />
+      <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
 
         <Card>
           <CardContent className="pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
