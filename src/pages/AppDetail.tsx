@@ -92,7 +92,7 @@ const AgentsSection = () => {
               <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
               <StatusDot status={it.status} />
             </CardHeader>
-            <CardContent className="text-sm space-y-2">
+            <CardContent className="pt-3 text-sm space-y-2">
               <div>
                 <div className="text-muted-foreground">指令</div>
                 <div className="line-clamp-2">{it.instruction}</div>
