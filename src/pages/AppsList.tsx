@@ -32,36 +32,36 @@ const AppsList = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sampleApps.map((app) => (
-            <Card key={app.id} className="hover:shadow-none">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Card key={app.id} className="shadow-none hover:bg-accent/30 transition-colors duration-200">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
                 <CardTitle className="text-base font-semibold">{app.name}</CardTitle>
                 <StatusDot status={app.status} />
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                <div className="flex items-center justify-between py-1">
+              <CardContent className="text-sm text-muted-foreground p-4 pt-0">
+                <div className="flex items-center justify-between py-0.5">
                   <span>Agents</span>
-                  <span>{app.agents}</span>
+                  <span className="text-foreground font-medium">{app.agents}</span>
                 </div>
-                <div className="flex items-center justify-between py-1">
+                <div className="flex items-center justify-between py-0.5">
                   <span>Tools</span>
-                  <span>{app.tools}</span>
+                  <span className="text-foreground font-medium">{app.tools}</span>
                 </div>
-                <div className="flex items-center justify-between py-1">
+                <div className="flex items-center justify-between py-0.5">
                   <span>MCPs</span>
-                  <span>{app.mcps ?? 0}</span>
+                  <span className="text-foreground font-medium">{app.mcps ?? 0}</span>
                 </div>
-                <div className="flex items-center justify-between py-1">
+                <div className="flex items-center justify-between py-0.5">
                   <span>Datasets</span>
-                  <span>{app.datasets ?? 0}</span>
+                  <span className="text-foreground font-medium">{app.datasets ?? 0}</span>
                 </div>
-                <div className="mt-3 rounded-md border p-3">
-                  <div className="mb-1 text-foreground">统计</div>
-                  <div className="space-y-1">
+                <div className="mt-3 rounded-md border p-2.5">
+                  <div className="mb-1 text-xs text-foreground/90">统计</div>
+                  <div className="space-y-0.5 text-xs">
                     <div>今日：会话 12 · Token 45k</div>
                     <div>总计：会话 12 · Token 45k</div>
                   </div>
                 </div>
-                <div className="pt-4">
+                <div className="pt-3">
                   <Button asChild variant="outline" className="w-full">
                     <Link to={`/apps/${app.id}/agents`}>进入</Link>
                   </Button>
