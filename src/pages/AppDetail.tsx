@@ -85,9 +85,9 @@ const AgentsSection = () => {
 
   return (
     <section className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((it) => (
-          <div key={it.id} className="w-3/4 justify-self-center">
+          <div key={it.id} className="w-4/5 justify-self-center">
             <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-base font-semibold">{it.name}</CardTitle>
