@@ -41,33 +41,30 @@ const AppDetail = () => {
       </Helmet>
       <AppHeader />
       <main className="container pt-20 pb-16 space-y-6 animate-fade-in">
+        <div className="flex items-center gap-3">
+          <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
+            <ChevronLeft className="h-4 w-4" /> 返回
+          </Button>
+          <h1 className="text-lg font-semibold">应用 #{id}</h1>
+          <div className="ml-auto flex items-center gap-3">
+            <span className="text-sm text-muted-foreground">状态</span>
+            <Switch />
+          </div>
+        </div>
 
         <Card>
-          <CardContent className="pt-6 space-y-4">
+          <CardContent className="pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
-                <ChevronLeft className="h-4 w-4" /> 返回
-              </Button>
-              <h1 className="text-lg font-semibold">应用 #{id}</h1>
-              <div className="ml-auto flex items-center gap-3">
-                <span className="text-sm text-muted-foreground">状态</span>
-                <Switch />
-              </div>
+              <span className="text-sm text-muted-foreground">API Key</span>
+              <span className="font-mono">sk-************************</span>
             </div>
-            <Separator />
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-sm text-muted-foreground">API Key</span>
-                <span className="font-mono">sk-************************</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" onClick={onCopy}>
-                  <Copy className="h-4 w-4 mr-1" /> 复制
-                </Button>
-                <Button variant="outline" size="sm">
-                  <RefreshCw className="h-4 w-4 mr-1" /> 重新生成
-                </Button>
-              </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" onClick={onCopy}>
+                <Copy className="h-4 w-4 mr-1" /> 复制
+              </Button>
+              <Button variant="outline" size="sm">
+                <RefreshCw className="h-4 w-4 mr-1" /> 重新生成
+              </Button>
             </div>
           </CardContent>
         </Card>
