@@ -38,27 +38,29 @@ const AppsList = () => {
                 <StatusDot status={app.status} />
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground p-4 pt-0">
-                <div className="flex items-center justify-between py-0.5">
-                  <span>Agents</span>
-                  <span className="text-foreground font-medium">{app.agents}</span>
-                </div>
-                <div className="flex items-center justify-between py-0.5">
-                  <span>Tools</span>
-                  <span className="text-foreground font-medium">{app.tools}</span>
-                </div>
-                <div className="flex items-center justify-between py-0.5">
-                  <span>MCPs</span>
-                  <span className="text-foreground font-medium">{app.mcps ?? 0}</span>
-                </div>
-                <div className="flex items-center justify-between py-0.5">
-                  <span>Datasets</span>
-                  <span className="text-foreground font-medium">{app.datasets ?? 0}</span>
+                <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+                  <div className="flex items-center justify-between py-0.5">
+                    <span>Agents</span>
+                    <span className="text-foreground font-medium">{app.agents}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-0.5">
+                    <span>Tools</span>
+                    <span className="text-foreground font-medium">{app.tools}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-0.5">
+                    <span>MCPs</span>
+                    <span className="text-foreground font-medium">{app.mcps ?? 0}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-0.5">
+                    <span>Datasets</span>
+                    <span className="text-foreground font-medium">{app.datasets ?? 0}</span>
+                  </div>
                 </div>
                 <div className="mt-3 rounded-md p-2.5">
                   <div className="mb-1 text-xs text-foreground/90">统计</div>
-                  <div className="space-y-0.5 text-xs">
+                  <div className="grid grid-cols-2 gap-x-3 text-xs">
                     <div>今日：会话 12 · Token 45k</div>
-                    <div>总计：会话 12 · Token 45k</div>
+                    <div className="text-right">总计：会话 12 · Token 45k</div>
                   </div>
                 </div>
                 <div className="pt-3">
