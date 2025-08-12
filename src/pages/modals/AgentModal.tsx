@@ -244,7 +244,7 @@ const AgentModal = ({ children, agent }: Props) => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="max-w-[700px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-[700px] max-h-[90vh] overflow-y-auto scrollbar-thin-dark">
         <DialogHeader>
           <DialogTitle>{agent ? "配置 Agent" : "新建 Agent"}</DialogTitle>
           <DialogDescription className="sr-only">

@@ -111,3 +111,25 @@ All colors MUST be HSL.
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   }
 }
+
+@layer utilities {
+  .scrollbar-thin-dark,
+  .scrollbar-thin-dark * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--foreground)) transparent; /* thumb, track */
+  }
+  .scrollbar-thin-dark::-webkit-scrollbar,
+  .scrollbar-thin-dark *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin-dark::-webkit-scrollbar-thumb,
+  .scrollbar-thin-dark *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--foreground) / 0.7);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin-dark::-webkit-scrollbar-track,
+  .scrollbar-thin-dark *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
